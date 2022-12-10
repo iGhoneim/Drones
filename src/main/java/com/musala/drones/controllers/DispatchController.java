@@ -4,9 +4,7 @@ import com.musala.drones.entities.Drone;
 import com.musala.drones.services.DroneService;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class DispatchController {
@@ -16,6 +14,16 @@ public class DispatchController {
     @PutMapping("/drone")
     public Drone registerDrone(@Valid @RequestBody Drone drone) {
         return droneService.register(drone);
+    }
+
+    @GetMapping("/drone/{serialNumber}")
+    public Drone droneInfo(@PathVariable("serialNumber") String serialNumber) {
+        return droneService.info(serialNumber);
+    }
+
+    @GetMapping("/drone/{serialNumber}/battery")
+    public String droneBattery(@PathVariable("serialNumber") String serialNumber) {
+        return droneService.battery(serialNumber);
     }
 
 
