@@ -1,0 +1,20 @@
+### registering a drone;
+PUT http://localhost:8080/drone
+Content-Type: application/json
+
+{
+  "serialNumber": "test_121b658ec887",
+  "model": "Lightweight",
+  "weightLimit": 68.72
+}
+
+### loading a drone with medication items;
+
+
+### checking loaded medication items for a given drone;
+
+
+### checking available drones for loading;
+
+
+### check drone battery level for a given drone;

@@ -20,7 +20,7 @@ import lombok.experimental.SuperBuilder;
 public class Drone extends Base {
     @Size(max = 100, message = "Drone's serial number cannot exceed 100 characters")
     @NotBlank(message = "Drone's serial number is mandatory, and cannot be empty")
-    @Column(name = Fields.serialNumber)
+    @Column(name = Fields.serialNumber, unique = true)
     private String serialNumber;
     @NotNull(message = "Drone's model is mandatory, and cannot be empty")
     @Enumerated(EnumType.STRING)

@@ -31,7 +31,7 @@ public class Medication extends Base {
     private Float weight;
     @Pattern(regexp = "^[A-Z0-9_]+$", message = "Medication's code allows only only upper case letters, numbers, and underscores")
     @NotBlank(message = "Medication's code is mandatory, and cannot be empty")
-    @Column(name = Fields.code)
+    @Column(name = Fields.code, unique = true)
     private String code;
     @Column(name = Fields.image)
     private String image;
