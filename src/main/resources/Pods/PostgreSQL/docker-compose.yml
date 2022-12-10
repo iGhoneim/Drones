@@ -1,0 +1,11 @@
+version: '2.1'
+services:
+  postgres:
+    container_name: musala
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: musala
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: nimda
