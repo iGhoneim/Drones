@@ -6,6 +6,8 @@ import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class DispatchController {
 
@@ -13,18 +15,27 @@ public class DispatchController {
 
     @PutMapping("/drone")
     public Drone registerDrone(@Valid @RequestBody Drone drone) {
-        return droneService.register(drone);
+        return droneService.registerDrone(drone);
+    }
+
+
+    @GetMapping("/drones")
+    public List<Drone> listDrones() {
+        return droneService.listDrones();
+    }
+
+    @GetMapping("/drones/available")
+    public List<Drone> availableDrones() {
+        return droneService.availableDrones();
     }
 
     @GetMapping("/drone/{serialNumber}")
     public Drone droneInfo(@PathVariable("serialNumber") String serialNumber) {
-        return droneService.info(serialNumber);
+        return droneService.droneInfo(serialNumber);
     }
 
     @GetMapping("/drone/{serialNumber}/battery")
     public String droneBattery(@PathVariable("serialNumber") String serialNumber) {
-        return droneService.battery(serialNumber);
+        return droneService.droneBattery(serialNumber);
     }
-
-
 }

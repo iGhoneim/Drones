@@ -3,9 +3,9 @@ PUT http://localhost:8080/drone
 Content-Type: application/json
 
 {
-  "serialNumber": "test_123",
+  "serialNumber": "D06",
   "model": "Lightweight",
-  "weightLimit": 68.72
+  "weightLimit": 15
 }
 
 ### loading a drone with medication items;
@@ -15,7 +15,7 @@ Content-Type: application/json
 
 
 ### checking available drones for loading;
-
+GET http://localhost:8080/drones/available
 
 ### check drone battery level for a given drone;
-GET http://localhost:8080/drone/test_123/battery
+GET http://localhost:8080/drone/D00/battery

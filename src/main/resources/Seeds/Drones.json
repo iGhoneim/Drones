@@ -1,7 +1,30 @@
 [
   {
-    "serialNumber": "test_121b658ec887",
+    "serialNumber": "D00",
     "model": "Lightweight",
-    "weightLimit": 68.72
+    "weightLimit": 20.0,
+    "batteryCapacity": 10
+  },
+  {
+    "serialNumber": "D01",
+    "model": "Lightweight",
+    "weightLimit": 10.0
+  },
+  {
+    "serialNumber": "D02",
+    "model": "Middleweight",
+    "weightLimit": 30.0,
+    "batteryCapacity": 60,
+    "state": "RETURNING"
+  },
+  {
+    "serialNumber": "D03",
+    "model": "Cruiserweight",
+    "weightLimit": 40.0
+  },
+  {
+    "serialNumber": "D04",
+    "model": "Heavyweight",
+    "weightLimit": 50.0
   }
 ]

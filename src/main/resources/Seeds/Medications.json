@@ -1,7 +1,52 @@
 [
   {
-    "name": "test_31a81029d713",
-    "weight": 73.08,
-    "code": "TEST_123"
+    "code": "M00",
+    "name": "M00",
+    "weight": 50.0
+  },
+  {
+    "code": "M01",
+    "name": "M01",
+    "weight": 5.0
+  },
+  {
+    "code": "M02",
+    "name": "M02",
+    "weight": 5.0
+  },
+  {
+    "code": "M03",
+    "name": "M03",
+    "weight": 9.0
+  },
+  {
+    "code": "M04",
+    "name": "M04",
+    "weight": 8.0
+  },
+  {
+    "code": "M05",
+    "name": "M05",
+    "weight": 50.0
+  },
+  {
+    "code": "M06",
+    "name": "M06",
+    "weight": 5.0
+  },
+  {
+    "code": "M07",
+    "name": "M07",
+    "weight": 5.0
+  },
+  {
+    "code": "M08",
+    "name": "M08",
+    "weight": 9.0
+  },
+  {
+    "code": "M09",
+    "name": "M09",
+    "weight": 8.0
   }
 ]

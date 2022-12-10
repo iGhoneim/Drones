@@ -1,5 +1,6 @@
 package com.musala.drones.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.musala.drones.listeners.BidirectionalListener;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,7 @@ import java.util.UUID;
 @MappedSuperclass
 @EntityListeners(BidirectionalListener.class)
 public abstract class Base implements Serializable {
+    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = Fields.id, updatable = false, nullable = false, unique = true)
