@@ -9,7 +9,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-@Profile("!TEST")
+@Profile(value = {"!test", "!prod", "!native"})
 @Component
 @Slf4j
 public class Medications extends ISeeder {

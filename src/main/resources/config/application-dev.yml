@@ -1,6 +1,8 @@
 musala:
   su-username: admin
   su-password: nimda
+server:
+  port: 8080
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
