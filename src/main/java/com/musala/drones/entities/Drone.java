@@ -1,5 +1,6 @@
 package com.musala.drones.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -33,6 +34,7 @@ public class Drone extends Base {
     @NotNull(message = "Drone's weight limit is mandatory, and cannot be empty")
     @Column(name = Fields.weightLimit)
     private Float weightLimit;
+    @JsonIgnore
     @OneToMany(targetEntity = Medication.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public Collection<Medication> medications;
     @NotNull(message = "Drone's state is mandatory, and cannot be empty")

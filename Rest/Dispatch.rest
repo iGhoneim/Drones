@@ -4,7 +4,7 @@ Authorization: Basic admin nimda
 Content-Type: application/json
 
 {
-  "serialNumber": "D06",
+  "serialNumber": "D05",
   "model": "Lightweight",
   "weightLimit": 15
 }

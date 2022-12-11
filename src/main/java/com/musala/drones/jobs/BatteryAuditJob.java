@@ -4,6 +4,7 @@ import com.musala.drones.entities.Drone;
 import com.musala.drones.repositories.DroneRepository;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -18,9 +19,11 @@ public class BatteryAuditJob {
 
     @Scheduled(fixedDelay = 5, timeUnit = TimeUnit.SECONDS)
     public void chargeDrones() {
-        log.info(droneRepository.findAll().stream()
+        var drones = droneRepository.findAll();
+        if (drones.isEmpty()) return;
+        log.info(drones.stream()
                 .sorted(Comparator.comparing(Drone::getSerialNumber))
                 .map(drone -> String.format("Drone %s [%s]: Battery %d%%", drone.getSerialNumber(), drone.getState(), drone.getBatteryCapacity()))
-                .collect(Collectors.joining(System.lineSeparator(), System.lineSeparator(), System.lineSeparator())));
+                .collect(Collectors.joining(System.lineSeparator(), System.lineSeparator(), StringUtils.EMPTY)));
     }
 }

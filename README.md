@@ -23,6 +23,9 @@ from `./Rest/Dispatch.rest`, and maintain its data in containerized Postgres `./
   or at least encrypted in `application.properties` using `Jasypt`
 * Logs could be better viewed on `Zipkin`
 * .. etc.
+* `Medication` images are implemented as `Strings` which could be filled with `Base64` encoded images, or URL. In case
+  of URLs, a `CDN` could be used instead of serving static resources.
+* Multiple `Medications` can be loaded to one `Drone`. However, A `Medication` can only be loaded to one `Drone`
 
 ---
 
