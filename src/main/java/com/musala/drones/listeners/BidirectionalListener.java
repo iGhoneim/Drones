@@ -30,6 +30,5 @@ public class BidirectionalListener {
                                 ReflectionUtils.setField(childField, child, parent);
                         }, childField -> childField.isAnnotationPresent(ManyToOne.class)));
         }, parentField -> parentField.isAnnotationPresent(OneToMany.class));
-        System.out.println();
     }
 }

@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DroneService {
@@ -18,23 +19,32 @@ public class DroneService {
         return droneRepository.saveAndFlush(drone);
     }
 
-    public Drone droneInfo(String serialNumber) {
-        return droneRepository.findBySerialNumber(serialNumber)
-                .orElseThrow(() -> new OperationException("Cannot fetch drone's info"));
+    public Optional<Drone> getDroneBySerialNumber(String serialNumber) {
+        return droneRepository.findBySerialNumber(serialNumber);
     }
 
-    public String droneBattery(String serialNumber) {
-        return droneRepository.findBySerialNumber(serialNumber)
+    public Optional<Drone> getAvailableDroneBySerialNumber(String serialNumber) {
+        return droneRepository.findBySerialNumberAndStateAndBatteryCapacityGreaterThanEqual(serialNumber, State.IDLE, 25f);
+    }
+
+    public String fetchDroneBattery(String serialNumber) {
+        return getDroneBySerialNumber(serialNumber)
                 .map(Drone::getBatteryCapacity)
                 .map(battery -> StringUtils.appendIfMissing(String.valueOf(battery), "%"))
                 .orElseThrow(() -> new OperationException("Cannot fetch drone's battery"));
     }
 
-    public List<Drone> listDrones() {
+    public List<Drone> listAllDrones() {
         return droneRepository.findAll();
     }
 
-    public List<Drone> availableDrones() {
+    public List<Drone> listAvailableDrones() {
         return droneRepository.findAllByStateAndBatteryCapacityGreaterThanEqual(State.IDLE, 25f);
     }
+
+    public Optional<Drone> listDroneMedications(String serialNumber) {
+        return droneRepository.findMedicationsByDroneSerialNumber(serialNumber);
+    }
+
+
 }

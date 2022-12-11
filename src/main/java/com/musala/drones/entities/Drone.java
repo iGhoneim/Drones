@@ -9,6 +9,8 @@ import lombok.Setter;
 import lombok.experimental.FieldNameConstants;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Collection;
+
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,12 +33,14 @@ public class Drone extends Base {
     @NotNull(message = "Drone's weight limit is mandatory, and cannot be empty")
     @Column(name = Fields.weightLimit)
     private Float weightLimit;
-    @DecimalMin(value = "0.0", message = "Drone's battery capacity min. value is 0%")
-    @DecimalMax(value = "100.0", message = "Drone's battery capacity max. values is 100%")
-    @Column(name = Fields.batteryCapacity)
-    private Float batteryCapacity = 100f;
+    @OneToMany(targetEntity = Medication.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public Collection<Medication> medications;
     @NotNull(message = "Drone's state is mandatory, and cannot be empty")
     @Enumerated(EnumType.STRING)
     @Column(name = Fields.state)
     private State state = State.IDLE;
+    @Min(value = 0, message = "Drone's battery capacity min. value is 0%")
+    @Max(value = 100, message = "Drone's battery capacity max. values is 100%")
+    @Column(name = Fields.batteryCapacity)
+    private Integer batteryCapacity = 100;
 }
