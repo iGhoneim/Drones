@@ -1,0 +1,38 @@
+### registering a drone;
+PUT http://localhost:8080/api/drone
+Authorization: Basic admin nimda
+Content-Type: application/json
+
+{
+  "serialNumber": "D05",
+  "model": "Lightweight",
+  "weightLimit": 15
+}
+
+### loading a drone with medication items;
+POST http://localhost:8080/api/drone/D01/load
+Authorization: Basic admin nimda
+Content-Type: application/json
+
+{
+  "medications": [
+    "M01",
+    "M02"
+  ]
+}
+
+### checking loaded medication items for a given drone;
+GET http://localhost:8080/api/drone/D01/deliver
+Authorization: Basic admin nimda
+
+### checking available drones for loading;
+GET http://localhost:8080/api/drones/available
+Authorization: Basic admin nimda
+
+### check drone battery level for a given drone;
+GET http://localhost:8080/api/drone/D00/battery
+Authorization: Basic admin nimda
+
+### checking loaded medication items for a given drone;
+GET http://localhost:8080/api/drone/D01/view
+Authorization: Basic admin nimda

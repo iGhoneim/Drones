@@ -1,0 +1,24 @@
+musala:
+  su-username: admin
+  su-password: nimda
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    name: musala
+    url: jdbc:postgresql://localhost:5432/musala
+    username: admin
+    password: nimda
+  jpa:
+    open-in-view: false
+    database: POSTGRESQL
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: public
+        hbm2ddl:
+          auto: create
