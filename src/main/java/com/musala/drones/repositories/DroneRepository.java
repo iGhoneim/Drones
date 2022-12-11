@@ -16,9 +16,9 @@ import java.util.UUID;
 public interface DroneRepository extends JpaRepository<Drone, UUID> {
     Optional<Drone> findBySerialNumber(String serialNumber);
 
-    Optional<Drone> findBySerialNumberAndStateAndBatteryCapacityGreaterThanEqual(String serialNumber, State state, Float batteryCapacity);
+    Optional<Drone> findBySerialNumberAndStateAndBatteryCapacityGreaterThanEqual(String serialNumber, State state, Integer batteryCapacity);
 
-    List<Drone> findAllByStateAndBatteryCapacityGreaterThanEqual(State state, Float batteryCapacity);
+    List<Drone> findAllByStateAndBatteryCapacityGreaterThanEqual(State state, Integer batteryCapacity);
 
     @Modifying
     @Transactional

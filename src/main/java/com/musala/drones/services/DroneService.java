@@ -24,7 +24,7 @@ public class DroneService {
     }
 
     public Optional<Drone> getAvailableDroneBySerialNumber(String serialNumber) {
-        return droneRepository.findBySerialNumberAndStateAndBatteryCapacityGreaterThanEqual(serialNumber, State.IDLE, 25f);
+        return droneRepository.findBySerialNumberAndStateAndBatteryCapacityGreaterThanEqual(serialNumber, State.IDLE, 25);
     }
 
     public String fetchDroneBattery(String serialNumber) {
@@ -39,7 +39,7 @@ public class DroneService {
     }
 
     public List<Drone> listAvailableDrones() {
-        return droneRepository.findAllByStateAndBatteryCapacityGreaterThanEqual(State.IDLE, 25f);
+        return droneRepository.findAllByStateAndBatteryCapacityGreaterThanEqual(State.IDLE, 25);
     }
 
     public Optional<Drone> listDroneMedications(String serialNumber) {
