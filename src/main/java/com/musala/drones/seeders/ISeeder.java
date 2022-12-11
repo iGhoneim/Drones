@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.UUID;
 
-@Profile("!TEST")
+@Profile(value = {"!test", "!prod"})
 @Component
 @Slf4j
 public abstract class ISeeder implements ApplicationRunner {
