@@ -13,6 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class DispatchController {
 
     private @Resource DroneService droneService;
