@@ -1,5 +1,6 @@
 package com.musala.drones.controllers;
 
+import com.musala.drones.data.BatteryResponse;
 import com.musala.drones.data.LoadRequest;
 import com.musala.drones.entities.Drone;
 import com.musala.drones.entities.Medication;
@@ -35,7 +36,7 @@ public class DispatchController {
     }
 
     @GetMapping("/drone/{serialNumber}/battery")
-    public String fetchDroneBattery(@PathVariable("serialNumber") String serialNumber) {
+    public BatteryResponse fetchDroneBattery(@PathVariable("serialNumber") String serialNumber) {
         return droneService.fetchDroneBattery(serialNumber);
     }
 

@@ -1,5 +1,6 @@
 package com.musala.drones.services;
 
+import com.musala.drones.data.BatteryResponse;
 import com.musala.drones.entities.Drone;
 import com.musala.drones.entities.State;
 import com.musala.drones.exceptions.OperationException;
@@ -27,10 +28,11 @@ public class DroneService {
         return droneRepository.findBySerialNumberAndStateAndBatteryCapacityGreaterThanEqual(serialNumber, State.IDLE, 25);
     }
 
-    public String fetchDroneBattery(String serialNumber) {
+    public BatteryResponse fetchDroneBattery(String serialNumber) {
         return getDroneBySerialNumber(serialNumber)
                 .map(Drone::getBatteryCapacity)
                 .map(battery -> StringUtils.appendIfMissing(String.valueOf(battery), "%"))
+                .map(BatteryResponse::new)
                 .orElseThrow(() -> new OperationException("Cannot fetch drone's battery"));
     }
 
