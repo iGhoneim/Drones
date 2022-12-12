@@ -27,6 +27,13 @@ from `./Rest/Dispatch.rest`, and maintain its data in containerized Postgres `./
   of URLs, a `CDN` could be used instead of serving static resources.
 * Multiple `Medications` can be loaded to one `Drone`. However, A `Medication` can only be loaded to one `Drone`
 * `Liquibase` or `Flyway` should be used for database tracking and migrations.
+* `mapStruct` or `Orika` should be used in Service & Facade layer to convert DAOs to DTOs
+
+###### External libraries
+
+* Lombok
+* Gson
+* Apache Commons "Lang"
 
 ---
 
@@ -35,7 +42,7 @@ from `./Rest/Dispatch.rest`, and maintain its data in containerized Postgres `./
 ### _on_ Development
 
 * ###### Requirements:
-    * Any JDK >= 17
+  * Any JDK >= 17
 
 * ###### Build:
     * Spin up a Postgres container by running `docker-compose up --build` in `./Pods/PostgreSQL`.
